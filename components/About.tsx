@@ -90,16 +90,26 @@ export default function About() {
             className="mt-8 space-y-5 text-lg leading-relaxed text-fg/80"
           >
             <p>
-              Sou Angélica Dantas. Por quase uma década venho unindo moda e
-              marketing — guiando marcas do briefing à venda, do moodboard ao
-              ROAS.
-            </p>
-            <p>
-              Trabalho com fundadoras, e-commerces emergentes e maisons já
-              estabelecidas que entenderam uma coisa: estética sem estratégia é
-              decoração. Eu entrego as duas.
+              Por quase uma década venho unindo moda e marketing — guiando
+              marcas do briefing à venda, do moodboard ao ROAS. Trabalho com
+              fundadoras, e-commerces emergentes e maisons que entenderam uma
+              coisa: estética sem estratégia é decoração.
             </p>
           </motion.div>
+
+          {/* Inline manifesto / mantra — replaces the standalone Manifesto section */}
+          <motion.blockquote
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.9, delay: 0.35 }}
+            className="font-display mt-10 border-l-2 border-accent pl-6 text-2xl font-light italic leading-snug text-fg/90 md:text-3xl"
+          >
+            "Não vendo coleções. Vendo desejo."
+            <footer className="mt-3 not-italic text-xs uppercase tracking-[0.25em] text-muted">
+              — A.D.
+            </footer>
+          </motion.blockquote>
 
           {/* Stats */}
           <div className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-4">

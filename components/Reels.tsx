@@ -84,7 +84,7 @@ export default function Reels() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-78%"]);
 
   return (
-    <section ref={ref} id="reels" className="relative h-[380vh] w-full">
+    <section ref={ref} id="reels" className="relative h-[240vh] w-full">
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-card/70">
         {/* Top eyebrow */}
         <div className="px-6 pt-24 md:px-12 md:pt-28">

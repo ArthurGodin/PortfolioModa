@@ -105,7 +105,7 @@ export default function Hero() {
                 variants={reveal}
                 initial="hidden"
                 animate="visible"
-                className="accent-name inline-block italic text-[clamp(3.5rem,14vw,12rem)] font-light tracking-[0.04em]"
+                className="accent-name inline-block italic text-[clamp(3rem,12.5vw,10.5rem)] font-light tracking-[0.015em]"
               >
                 {l}
               </motion.span>

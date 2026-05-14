@@ -150,7 +150,71 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        {/* Method strip — folds the old Process section in as a compact bottom row */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="mt-20 border-t border-fg/10 pt-12 md:mt-28 md:pt-16"
+        >
+          <div className="mb-8 flex items-end justify-between gap-6">
+            <div>
+              <div className="mb-3 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-muted">
+                <span className="h-px w-8 bg-accent" />
+                <span>Método</span>
+              </div>
+              <h3 className="font-display text-2xl font-light leading-tight text-fg md:text-3xl">
+                Quatro etapas. <em className="italic text-accent">Zero atalho.</em>
+              </h3>
+            </div>
+          </div>
+          <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {METHOD.map((m, i) => (
+              <motion.li
+                key={m.num}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="border-l border-fg/15 pl-5 transition-colors hover:border-accent"
+              >
+                <div className="font-display text-2xl italic text-accent/70">
+                  {m.num}
+                </div>
+                <h4 className="font-display mt-1 text-xl font-medium text-fg">
+                  {m.title}
+                </h4>
+                <p className="mt-2 text-sm text-fg/65">{m.body}</p>
+              </motion.li>
+            ))}
+          </ol>
+        </motion.div>
       </div>
     </section>
   );
 }
+
+const METHOD = [
+  {
+    num: "01",
+    title: "Imersão",
+    body: "Briefing, escuta ativa, mapeamento de marca e desejo.",
+  },
+  {
+    num: "02",
+    title: "Estratégia",
+    body: "Posicionamento, narrativa e KPIs antes do pixel.",
+  },
+  {
+    num: "03",
+    title: "Direção",
+    body: "Moodboard, casting, styling, produção. A imagem é construída.",
+  },
+  {
+    num: "04",
+    title: "Execução",
+    body: "Performance, mídia, conteúdo, CRM e relatórios.",
+  },
+];
