@@ -133,7 +133,7 @@ export default function Hero() {
         >
           <MagneticButton
             href="#portfolio"
-            data-cursor="hover"
+            dataCursor="hover"
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-accent px-7 py-4 text-sm font-medium uppercase tracking-[0.18em] text-beige no-underline"
           >
             <span className="relative z-10">Ver projetos</span>
@@ -144,7 +144,7 @@ export default function Hero() {
           </MagneticButton>
           <MagneticButton
             href="#contact"
-            data-cursor="hover"
+            dataCursor="hover"
             className="group inline-flex items-center gap-3 rounded-full border border-fg/20 px-7 py-4 text-sm font-medium uppercase tracking-[0.18em] text-fg no-underline transition-colors hover:border-fg/60"
           >
             <span>Vamos conversar</span>

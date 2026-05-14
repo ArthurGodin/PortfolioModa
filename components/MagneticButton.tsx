@@ -8,14 +8,16 @@ export default function MagneticButton({
   className,
   href,
   strength = 0.35,
-  ...rest
+  dataCursor,
 }: {
   children: ReactNode;
   className?: string;
   href?: string;
   strength?: number;
-} & React.HTMLAttributes<HTMLElement>) {
-  const ref = useRef<HTMLAnchorElement | HTMLDivElement>(null);
+  /** Pass-through for the global Cursor component */
+  dataCursor?: string;
+}) {
+  const ref = useRef<HTMLAnchorElement | HTMLDivElement | null>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 250, damping: 18, mass: 0.4 });
@@ -34,18 +36,32 @@ export default function MagneticButton({
     y.set(0);
   }
 
-  const Tag = href ? motion.a : motion.div;
+  if (href) {
+    return (
+      <motion.a
+        ref={ref as React.RefObject<HTMLAnchorElement>}
+        href={href}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        style={{ x: sx, y: sy }}
+        className={className}
+        data-cursor={dataCursor}
+      >
+        {children}
+      </motion.a>
+    );
+  }
+
   return (
-    <Tag
-      ref={ref as never}
-      href={href}
+    <motion.div
+      ref={ref as React.RefObject<HTMLDivElement>}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ x: sx, y: sy }}
       className={className}
-      {...rest}
+      data-cursor={dataCursor}
     >
       {children}
-    </Tag>
+    </motion.div>
   );
 }
